@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 Disallow: /press/
 
-Sitemap: https://soab42.github.io/devspro/sitemap.xml
+Sitemap: https://devspro.codevionix.com/sitemap.xml

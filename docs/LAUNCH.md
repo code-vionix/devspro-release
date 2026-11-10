@@ -5,7 +5,8 @@ switches, and a checklist for before, on and after launch day.
 
 The website lives in [`site/`](../site) and is deployed to GitHub Pages by
 [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) on every push to
-`main` that touches `site/`. Its URL is `https://soab42.github.io/devspro/`.
+`main` that touches `site/`. Its URL is `https://devspro.codevionix.com/`
+(`https://soab42.github.io/devspro/` redirects there).
 
 ## Read this first: the repository is private
 
@@ -41,7 +42,7 @@ repository is public.
 
 > DevsPro runs your local dev stack from one app on Linux and Windows: nginx sites with trusted HTTPS, Docker, databases, workers, mail, logs, ports, SSH and a terminal. Elevated actions go through one small helper with a fixed list of operations. Free, MIT.
 
-**Links:** website `https://soab42.github.io/devspro/`, GitHub
+**Links:** website `https://devspro.codevionix.com/`, GitHub
 `https://github.com/Soab42/devspro`.
 
 **Pricing:** Free. **Open source:** yes, once the repository is public.
@@ -214,17 +215,25 @@ its static text.
 
 ## Changing the site's address
 
-The address `https://soab42.github.io/devspro/` is written in:
+The site is at `https://devspro.codevionix.com/`, a custom domain on GitHub
+Pages. That address is written in:
 
 - the `canonical`, `og:url`, `og:image` and `twitter:image` tags in
   `site/index.html` and `site/changelog.html`
 - `site/sitemap.xml` and `site/robots.txt`
-- `site/press/og.html` (the URL printed on the social card)
-- the updater feed URL compiled into the app, which reads `latest.json` from
-  this site
+- `site/press/og.html` (the URL printed on the social card, so re-render the
+  images after changing it)
 
-For a custom domain, add a `site/CNAME` file containing the domain, set it in
-Settings → Pages, change the places above, and re-render the images. Links
-inside the site are relative, so nothing else needs to change. `robots.txt`
-only takes effect at a domain's root, so it starts working with a custom
-domain.
+The domain itself is set in Settings → Pages (or
+`gh api -X PUT repos/Soab42/devspro/pages -f cname=<domain>`), not by a
+`site/CNAME` file, which GitHub ignores for a site deployed by a workflow. Its
+DNS record must be a CNAME to `soab42.github.io`, and DNS-only rather than
+proxied if the zone is on Cloudflare, so GitHub can issue the certificate.
+Point the DNS first and set the domain second: from the moment it is set,
+`soab42.github.io/devspro/` redirects to it.
+
+The updater feed URL compiled into the app stays
+`https://soab42.github.io/devspro/latest.json` on purpose. Every installed
+copy asks that address, the redirect carries it to the custom domain, and it
+keeps answering directly if the custom domain is ever removed. So never point
+the custom domain somewhere that doesn't serve this site.

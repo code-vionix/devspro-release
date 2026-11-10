@@ -178,7 +178,8 @@ way to confirm the helper is where the app expects and that elevation works.
 ## Releasing an update
 
 Installed copies check `https://soab42.github.io/devspro/latest.json` (the
-`site/` folder, deployed by `.github/workflows/pages.yml`) a little after they
+`site/` folder, deployed by `.github/workflows/pages.yml`; GitHub redirects it
+to `https://devspro.codevionix.com/latest.json`) a little after they
 start and every six hours, and from Settings → Updates. The feed is in the
 shape Tauri's updater reads; each package in it is a GitHub release asset with
 a minisign signature.

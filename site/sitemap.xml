@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://soab42.github.io/devspro/</loc>
+    <loc>https://devspro.codevionix.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://soab42.github.io/devspro/changelog.html</loc>
+    <loc>https://devspro.codevionix.com/changelog.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -55,7 +55,7 @@ Once installed, DevsPro updates itself: it checks for a new version on start
 and in Settings → Updates, and installs it through the elevation helper with
 one password (or UAC) prompt. Packages are signed, and the helper checks the
 signature itself before installing anything. Release notes:
-**[soab42.github.io/devspro](https://soab42.github.io/devspro/changelog.html)**.
+**[devspro.codevionix.com](https://devspro.codevionix.com/changelog.html)**.
 
 ## Platform support
 

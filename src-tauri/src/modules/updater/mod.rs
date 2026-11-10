@@ -24,6 +24,12 @@ use tauri::{AppHandle, Emitter, Manager, State};
 use crate::elevate::{self, Operation, OperationManifest};
 
 /// Published by the website build; `scripts/release.mjs` writes it.
+///
+/// The site lives at devspro.codevionix.com, and GitHub Pages redirects this
+/// address there, which reqwest follows. Keep this one anyway: every copy
+/// already installed asks it, and it keeps answering, directly, if the custom
+/// domain is ever dropped. A lapsed or taken-over domain could only stop
+/// updates, not forge one: packages are checked against `updater.pub`.
 pub const FEED_URL: &str = "https://soab42.github.io/devspro/latest.json";
 pub const RELEASE_NOTES_URL: &str = "https://soab42.github.io/devspro/changelog.html";
 /// The updater's public key as `tauri signer generate` writes it. The helper
